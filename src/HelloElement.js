@@ -9,12 +9,13 @@ class HelloElement extends HTMLElement {
     }
 
     connectedCallback() {
-        const div = createElement("div");
-        div.innerHTML = "Hello World";
+        const div = document.createElement("div");
+        div.innerHTML = "Hello " + this.getAttribute("hello");
         this.appendChild(div);
     }
 
-    attributeChangedCallback() {
+    attributeChangedCallback(attrName, oldVal, newVal) {
+        console.log("hello!!! " + attrName + oldVal + newVal);
         console.log(this.getAttribute("hello"));
     }
 }

@@ -6,6 +6,16 @@
 </head>
 <body>
 
-    <hello-world/>
+    <hello-world hello="world"/>
+
+<script>
+    setTimeout(function() {
+        const hw = document.querySelector("hello-world");
+        console.log(hw.getAttribute("hello"));
+        console.log(hw);
+        hw.setAttribute("hello", "another world");
+        console.log(hw.getAttribute("hello"));
+    }, 3000)
+</script>
 </body>
 </html>

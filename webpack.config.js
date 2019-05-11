@@ -51,7 +51,7 @@ const testPage = {
     ...common,
     entry: {
         helloElement: "./src/HelloElement.js",
-        selectCompanyElement: "./src/SelectCompanyElement.tsx"
+        selectCompanyElement: "./src/SelectCompanyElement.ts"
     },
     output: {
         ...common.output,
@@ -80,7 +80,7 @@ const customElementsDist = {
     ...common,
     entry: {
         helloElement: "./src/HelloElement.js",
-        selectCompanyElement: "./src/SelectCompanyElement.tsx"
+        selectCompanyElement: "./src/SelectCompanyElement.ts"
     },
     output: {
         ...common.output,

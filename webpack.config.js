@@ -51,6 +51,7 @@ const testPage = {
     ...common,
     entry: {
         helloElement: "./src/HelloElement.js",
+        selectCompanyElement: "./src/SelectCompanyElement.tsx"
     },
     output: {
         ...common.output,
@@ -65,6 +66,13 @@ const testPage = {
             chunks: ["helloElement"],
             chunksSortMode: "manual"
         }),
+        new HtmlWebpackPlugin({
+            filename: "indexSelect.html",
+            inject: "body",
+            template: "./src/indexSelectTemplate.html",
+            chunks: ["selectCompanyElement"],
+            chunksSortMode: "manual"
+        }),
     ]
 }
 
@@ -72,6 +80,7 @@ const customElementsDist = {
     ...common,
     entry: {
         helloElement: "./src/HelloElement.js",
+        selectCompanyElement: "./src/SelectCompanyElement.tsx"
     },
     output: {
         ...common.output,

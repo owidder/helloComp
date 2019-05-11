@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+
+    <select-company initialShort="AAPL"/>
+
+<script>
+    setTimeout(function() {
+        const comp = document.querySelector("select-company");
+        comp.setAttribute("initialShort", "FB");
+        console.log(comp.getAttribute("initialShort"));
+    }, 3000)
+</script>
+</body>
+</html>

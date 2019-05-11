@@ -1,5 +1,9 @@
 class HelloElement extends HTMLElement {
 
+    static get observedAttributes() {
+        return ["hello"];
+    }
+
     constructor() {
         super();
         const div = document.createElement("div");
@@ -8,11 +12,10 @@ class HelloElement extends HTMLElement {
     }
 
     attributeChangedCallback(attrName, oldVal, newVal) {
-        console.log("hello!!! " + attrName + oldVal + newVal);
-        console.log(this.getAttribute("hello"));
+        console.log(`${attrName}: ${oldVal} -> ${newVal}`);
+        const div = document.querySelector("div");
+        div.innerHTML = "Hello " + newVal;
     }
 }
-
-HelloElement.obsvervedAttributes = ["hello"];
 
 customElements.define("hello-world", HelloElement);

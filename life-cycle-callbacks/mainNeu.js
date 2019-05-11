@@ -10,17 +10,24 @@ class Square extends HTMLElement {
         // Always call super first in constructor
         super();
 
-        const shadow = this.attachShadow({mode: 'open'});
-
         const div = document.createElement('div');
         const style = document.createElement('style');
-        shadow.appendChild(style);
-        shadow.appendChild(div);
+        this.appendChild(style);
+        this.appendChild(div);
+    }
+
+    updateStyle() {
+        document.querySelector('style').textContent = `
+            div {
+              width: ${this.getAttribute('l')}px;
+              height: ${this.getAttribute('l')}px;
+              background-color: ${this.getAttribute('c')};
+            }`
     }
 
     connectedCallback() {
         console.log('Custom square element added to page.');
-        updateStyle(this);
+        this.updateStyle(this);
     }
 
     disconnectedCallback() {
@@ -33,19 +40,8 @@ class Square extends HTMLElement {
 
     attributeChangedCallback(name, oldValue, newValue) {
         console.log('Custom square element attributes changed.');
-        updateStyle(this);
+        this.updateStyle();
     }
 }
 
 customElements.define('custom-square', Square);
-
-function updateStyle(elem) {
-    const shadow = elem.shadowRoot;
-    shadow.querySelector('style').textContent = `
-    div {
-      width: ${elem.getAttribute('l')}px;
-      height: ${elem.getAttribute('l')}px;
-      background-color: ${elem.getAttribute('c')};
-    }
-  `;
-}

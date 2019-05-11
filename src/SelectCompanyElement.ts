@@ -8,6 +8,7 @@ class SelectCompanyElement extends HTMLElement {
         super();
         const div = document.createElement("div");
         this.appendChild(div);
+        console.log("C: " + this.getAttribute("initialShort"))
         this.update();
     }
 
@@ -16,7 +17,7 @@ class SelectCompanyElement extends HTMLElement {
         div.innerHTML = this.getAttribute("initialShort");
     }
 
-    attributeChangedCallback() {
+    attributeChangedCallback(attrName, oldVal, newVal) {
         console.log("attributeChangedCallback");
         this.update();
     }

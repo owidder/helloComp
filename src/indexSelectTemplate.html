@@ -2,16 +2,18 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Hello World</title>
+    <title>Select</title>
 </head>
 <body>
 
-    <select-company initialShort="AAPL"/>
+    <select-company/>
 
 <script>
+    const comp = document.querySelector("select-company");
+    comp.setAttribute("initialShort", "AAPL");
     setTimeout(function() {
-        const comp = document.querySelector("select-company");
-        comp.setAttribute("initialShort", "FB");
+        const comp2 = document.querySelector("select-company");
+        comp2.setAttribute("initialShort", "FB");
         console.log(comp.getAttribute("initialShort"));
     }, 3000)
 </script>

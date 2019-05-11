@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Life cycle callbacks test</title>
+    <style>
+        custom-square {
+            margin: 20px;
+        }
+    </style>
+    <script defer src="mainNeu.js"></script>
+</head>
+<body>
+<h1>Life cycle callbacks test</h1>
+
+<custom-square l="100" c="blue"/>
+
+<script>
+    (function () {
+        const square = document.querySelector("custom-square");
+        setTimeout(function() {
+            square.setAttribute("l", "500");
+            square.setAttribute("c", "red");
+        }, 2000)
+    })()
+</script>
+
+</body>
+</html>

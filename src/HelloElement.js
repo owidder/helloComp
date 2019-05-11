@@ -6,6 +6,9 @@ class HelloElement extends HTMLElement {
 
     constructor() {
         super();
+    }
+
+    connectedCallback() {
         const div = document.createElement("div");
         div.innerHTML = "Hello " + this.getAttribute("hello");
         this.appendChild(div);
@@ -14,7 +17,8 @@ class HelloElement extends HTMLElement {
     attributeChangedCallback(attrName, oldVal, newVal) {
         console.log(`${attrName}: ${oldVal} -> ${newVal}`);
         const div = document.querySelector("div");
-        div.innerHTML = "Hello " + newVal;
+        console.log(div);
+        div && (div.innerHTML = "Hello " + newVal);
     }
 }
 
